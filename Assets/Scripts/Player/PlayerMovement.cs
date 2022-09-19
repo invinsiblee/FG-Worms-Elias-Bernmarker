@@ -3,18 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")] 
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
-    [SerializeField] private float gravity;
     
     [Header("Jump")]
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpCooldown;
-    [SerializeField] private float airMultiplier;
     private bool readyToJump = true;
     
     [Header("Ground Check")] 
@@ -24,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float horizontalInput;
     private float verticalInput;
-    private Vector3 velocity;
+    private Vector3 movement;
+    private float turn;
     private bool aimDown;
 
     private Rigidbody rb;
@@ -41,17 +41,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        MovePlayer();
+        //MovePlayer();
         Aim();
-
-        gravity += Physics.gravity.y * Time.deltaTime;
-        if (gravity <= 0)
-        {
-            gravity = 0;
-        }
+        
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, WhatIsGround);
             
         MyInput();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+        Turn();
     }
 
     private void MyInput()
@@ -68,18 +69,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void MovePlayer()
+    void Move()
     {
-        if (grounded)
-        {
-            transform.Rotate(0, horizontalInput * rotateSpeed * Time.deltaTime, 0);
-            transform.Translate(0, 0, verticalInput * moveSpeed * Time.deltaTime);
-        }
-        else
-        {
-            transform.Rotate(0, horizontalInput * rotateSpeed * Time.deltaTime, 0);
-            transform.Translate(0, 0, verticalInput * moveSpeed * airMultiplier * Time.deltaTime);
-        }
+        movement = new Vector3(0, 0, verticalInput * moveSpeed * Time.deltaTime);
+        var moveDirection = transform.TransformDirection(movement);
+        rb.MovePosition(transform.position + moveDirection);
+    }
+
+    void Turn()
+    {
+        turn = horizontalInput * rotateSpeed * Time.deltaTime;
+        Quaternion turnRotation = Quaternion.Euler(0, turn, 0);
+        rb.MoveRotation(rb.rotation * turnRotation);
     }
 
     private void Jump()

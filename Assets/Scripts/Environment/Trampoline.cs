@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Rigidbody player;
+    [SerializeField] private float power = 20;
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.CompareTag("Player"))
+        {
+            player.AddForce(0,power,0, ForceMode.Impulse);
+        }
     }
 }
