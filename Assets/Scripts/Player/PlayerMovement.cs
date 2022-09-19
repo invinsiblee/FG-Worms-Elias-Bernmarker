@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -9,7 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
     [SerializeField] private float gravity;
-
+    
+    [Header("Jump")]
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpCooldown;
     [SerializeField] private float airMultiplier;
@@ -22,9 +24,13 @@ public class PlayerMovement : MonoBehaviour
 
     private float horizontalInput;
     private float verticalInput;
+    private Vector3 velocity;
     private bool aimDown;
 
     private Rigidbody rb;
+
+    [SerializeField] private CinemachineVirtualCamera normalCam;
+    [SerializeField] private CinemachineFreeLook aimCam;
 
     private void Start()
     {
@@ -34,10 +40,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         MovePlayer();
-        if (aimDown == true)
-        {
-            Aim();
-        }
+        Aim();
 
         gravity += Physics.gravity.y * Time.deltaTime;
         if (gravity <= 0)
@@ -72,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            transform.Rotate(0, horizontalInput * rotateSpeed * Time.deltaTime, 0);
             transform.Translate(0, 0, verticalInput * moveSpeed * airMultiplier * Time.deltaTime);
         }
     }
@@ -88,7 +92,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Aim()
     {
-        //Change camera
+        if (!aimDown)
+        {
+            normalCam.Priority = 2;
+            aimCam.Priority = 1;
+        }
+        else
+        {
+            normalCam.Priority = 1;
+            aimCam.Priority = 2;  
+        }
+        
         //Lock controls
+        //activate crosshair
     }
 }
