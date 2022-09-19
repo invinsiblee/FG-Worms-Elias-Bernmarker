@@ -29,8 +29,10 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
 
+    [Header("References")]
     [SerializeField] private CinemachineVirtualCamera normalCam;
     [SerializeField] private CinemachineFreeLook aimCam;
+    [SerializeField] private GameObject crosshair;
 
     private void Start()
     {
@@ -92,18 +94,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void Aim()
     {
-        if (!aimDown)
+        if (aimDown)
         {
-            normalCam.Priority = 2;
-            aimCam.Priority = 1;
+            normalCam.Priority = 1;
+            aimCam.Priority = 2;
+            crosshair.SetActive(true);
         }
         else
         {
-            normalCam.Priority = 1;
-            aimCam.Priority = 2;  
+            normalCam.Priority = 2;
+            aimCam.Priority = 1;  
+            crosshair.SetActive(false);
         }
         
         //Lock controls
-        //activate crosshair
     }
 }
