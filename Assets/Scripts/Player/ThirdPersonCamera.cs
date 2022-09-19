@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ThirdPersonCamera : MonoBehaviour
@@ -9,9 +6,9 @@ public class ThirdPersonCamera : MonoBehaviour
     public Transform orientation;
     public Transform player;
     public Transform playerObj;
-    public Rigidbody rb;
 
-    public float rotationSpeed;
+    public Transform combatLookAt;
+    public Transform cam;
 
     private void Start()
     {
@@ -21,18 +18,11 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void Update()
     {
-        Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
+        //player.LookAt(cam);
+
+        Vector3 viewDir = new Vector3(transform.position.x, player.position.y, transform.position.z);
         orientation.forward = viewDir.normalized;
         
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-
-        Vector3 inputDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
-        if (inputDirection != Vector3.zero)
-        {
-            playerObj.forward =
-                Vector3.Slerp(playerObj.forward, inputDirection.normalized, Time.deltaTime * rotationSpeed);
-        }
+        
     }
 }
