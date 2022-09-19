@@ -18,11 +18,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void Update()
     {
-        //player.LookAt(cam);
-
         Vector3 viewDir = new Vector3(transform.position.x, player.position.y, transform.position.z);
         orientation.forward = viewDir.normalized;
-        
-        
     }
 }
