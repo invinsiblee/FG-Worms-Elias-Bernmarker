@@ -5,10 +5,6 @@ public class ThirdPersonCamera : MonoBehaviour
     [Header("References")] 
     public Transform orientation;
     public Transform player;
-    public Transform playerObj;
-
-    public Transform combatLookAt;
-    public Transform cam;
 
     private void Start()
     {
