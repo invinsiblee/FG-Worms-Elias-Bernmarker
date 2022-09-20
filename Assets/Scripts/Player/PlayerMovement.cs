@@ -21,15 +21,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask WhatIsGround;
     private bool grounded;
 
-    private float horizontalInput;
-    private float verticalInput;
     private Vector3 movement;
     private float turn;
-    private bool aimDown;
 
     private Rigidbody rb;
 
     [Header("References")]
+    [SerializeField] private MyInput myInput;
     [SerializeField] private CinemachineVirtualCamera normalCam;
     [SerializeField] private CinemachineFreeLook aimCam;
     [SerializeField] private GameObject crosshair;
@@ -41,51 +39,42 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        //MovePlayer();
         Aim();
         
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, WhatIsGround);
             
-        MyInput();
+        //MyInput();
     }
 
     private void FixedUpdate()
     {
         Move();
         Turn();
-    }
-
-    private void MyInput()
-    {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-        aimDown = Input.GetButton("Fire2");
-
-        if (Input.GetButton("Jump") && readyToJump && grounded)
-        {
-            readyToJump = false;
-            Jump();
-            Invoke(nameof(ResetJump), jumpCooldown);
-        }
+        Jump();
     }
 
     void Move()
     {
-        movement = new Vector3(0, 0, verticalInput * moveSpeed * Time.deltaTime);
+        movement = new Vector3(0, 0, myInput.verticalInput * moveSpeed * Time.deltaTime);
         var moveDirection = transform.TransformDirection(movement);
         rb.MovePosition(transform.position + moveDirection);
     }
 
     void Turn()
     {
-        turn = horizontalInput * rotateSpeed * Time.deltaTime;
+        turn = myInput.horizontalInput * rotateSpeed * Time.deltaTime;
         Quaternion turnRotation = Quaternion.Euler(0, turn, 0);
         rb.MoveRotation(rb.rotation * turnRotation);
     }
 
     private void Jump()
     {
-        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        if (myInput.jump && readyToJump && grounded)
+        {
+            readyToJump = false;
+            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
     }
 
     private void ResetJump()
@@ -95,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Aim()
     {
-        if (aimDown)
+        if (myInput.aimDown)
         {
             normalCam.Priority = 1;
             aimCam.Priority = 2;
