@@ -10,6 +10,7 @@ public class MyInput : MonoBehaviour
     public bool aimDown;
     public bool jump;
     public bool nextTurn;
+    public bool shoot;
     private void Update()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -17,5 +18,6 @@ public class MyInput : MonoBehaviour
         aimDown = Input.GetButton("Fire2");
         jump = Input.GetButton("Jump");
         nextTurn = Input.GetButtonDown("EndTurn");
+        shoot = Input.GetButtonDown("Fire1");
     }
 }

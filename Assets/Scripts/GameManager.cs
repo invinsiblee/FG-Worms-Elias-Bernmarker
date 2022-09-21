@@ -12,11 +12,16 @@ public class GameManager : MonoBehaviour
 
     private MyInput myInput;
 
-    [Header("Players")] 
+    [Header("Player scripts")] 
     [SerializeField] private PlayerMovement move1;
     [SerializeField] private PlayerMovement move2;
     [SerializeField] private PlayerMovement move3;
     [SerializeField] private PlayerMovement move4;
+
+    [SerializeField] private ShootingLogic shoot1;
+    [SerializeField] private ShootingLogic shoot2;
+    [SerializeField] private ShootingLogic shoot3;
+    [SerializeField] private ShootingLogic shoot4;
 
     [Header("Cameras")] 
     [SerializeField] private CinemachineFreeLook cam2;
@@ -52,6 +57,11 @@ public class GameManager : MonoBehaviour
             move2.enabled = false;
             move3.enabled = false;
             move4.enabled = false;
+
+            shoot1.enabled = false;
+            shoot2.enabled = false;
+            shoot3.enabled = false;
+            shoot4.enabled = false;
             
             players++;
             if (players == 1)
@@ -76,6 +86,7 @@ public class GameManager : MonoBehaviour
     void Player1()
     {
         move1.enabled = true;
+        shoot1.enabled = true;
         
         cam1.LookAt = move1.transform;
         cam2.LookAt = aim1;
@@ -88,6 +99,7 @@ public class GameManager : MonoBehaviour
     void Player2()
     {
         move2.enabled = true;
+        shoot2.enabled = true;
         
         cam1.LookAt = move2.transform;
         cam2.LookAt = aim2;
@@ -98,6 +110,7 @@ public class GameManager : MonoBehaviour
     void Player3()
     {
         move3.enabled = true;
+        shoot3.enabled = true;
         
         cam1.LookAt = move3.transform;
         cam2.LookAt = aim3;
@@ -108,6 +121,7 @@ public class GameManager : MonoBehaviour
     void Player4()
     {
         move4.enabled = true;
+        shoot4.enabled = true;
         
         cam1.LookAt = move4.transform;
         cam2.LookAt = aim4;

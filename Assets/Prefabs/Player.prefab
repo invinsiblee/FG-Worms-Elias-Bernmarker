@@ -108,6 +108,9 @@ MonoBehaviour:
   mouseCollider:
     serializedVersion: 2
     m_Bits: 128
+  myinput: {fileID: 0}
+  vfxMiss: {fileID: 4206395580040233202, guid: 744536a8b4d9a834a972830f50b03923, type: 3}
+  vfxHit: {fileID: 262856656005066089, guid: 8dca4f15cdfac814a88ffceb80fbdf57, type: 3}
 --- !u!1 &1442569375109880886
 GameObject:
   m_ObjectHideFlags: 0
