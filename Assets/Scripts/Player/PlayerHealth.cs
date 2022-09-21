@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private float maxHealth;
-    public float currentHealth;
+    [SerializeField] private int maxHealth;
+    [SerializeField] private HealthBar healthBar;
+    public int currentHealth;
     
     void Start()
     {
         currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
 
@@ -20,6 +22,8 @@ public class PlayerHealth : MonoBehaviour
 
     void CheckPlayerHealth()
     {
+        healthBar.SetCurrentHealth(currentHealth);
+        
         if (currentHealth <= 0)
         {
             //death animation

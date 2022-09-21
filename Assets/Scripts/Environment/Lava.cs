@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Lava : MonoBehaviour
 {
-    [SerializeField] private float damage;
+    [SerializeField] private int damage;
     [Header("Players")]
     [SerializeField] private PlayerHealth health;
     [SerializeField] private PlayerHealth health2;
