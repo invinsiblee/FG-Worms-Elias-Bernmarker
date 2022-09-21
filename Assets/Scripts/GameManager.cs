@@ -33,12 +33,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform aim3;
     [SerializeField] private Transform aim4;
 
-    [Header("Boundaries")] 
-    [SerializeField] private GameObject bound1;
-    [SerializeField] private GameObject bound2;
-    [SerializeField] private GameObject bound3;
-    [SerializeField] private GameObject bound4;
-    
     void Start()
     {
         myInput = GetComponent<MyInput>();
@@ -92,8 +86,6 @@ public class GameManager : MonoBehaviour
         cam2.LookAt = aim1;
         cam1.Follow = move1.transform;
         cam2.Follow = move1.transform;
-
-        bound1.transform.position = move1.transform.position;
     }
 
     void Player2()
