@@ -1,10 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootingLogic : MonoBehaviour
 {
+    [SerializeField] private int weaponDamage;
     [SerializeField] private LayerMask mouseCollider;
     [SerializeField] private MyInput myinput;
     [SerializeField] private Transform vfxMiss;
@@ -39,6 +37,7 @@ public class ShootingLogic : MonoBehaviour
             if (hitTransform.CompareTag("Player") || hitTransform.CompareTag("Player2") || hitTransform.CompareTag("Player3") || hitTransform.CompareTag("Player4"))
             {
                 Instantiate(vfxHit, mouseWorldPosition, Quaternion.identity);
+                hitTransform.gameObject.GetComponent<PlayerHealth>().currentHealth -= weaponDamage;
             }
             else
             {

@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            //death animation
             //Set active UI
         }
     }
