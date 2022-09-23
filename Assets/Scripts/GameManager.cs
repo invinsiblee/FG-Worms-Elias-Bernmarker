@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     private MyInput myInput;
 
-    [Header("Player scripts")] 
+    [Header("Player scripts")]
     [SerializeField] private PlayerMovement move1;
     [SerializeField] private PlayerMovement move2;
     [SerializeField] private PlayerMovement move3;
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     void NextTurn()
     {
-        if (myInput.nextTurn)
+        if (myInput.nextTurn || myInput.aimDown && myInput.shoot)
         {
             move1.enabled = false;
             move2.enabled = false;
