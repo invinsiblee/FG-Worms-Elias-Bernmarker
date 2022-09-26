@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private GameObject crossedOut;
+    [SerializeField] private GameObject ui;
     public int currentHealth;
     
     void Start()
@@ -28,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            //ui.SetActive(true);
             Destroy(gameObject);
             crossedOut.SetActive(true);
         }

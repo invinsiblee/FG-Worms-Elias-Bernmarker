@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    //activate the playermovement 
-    //change camera active
-
     private int players = 1;
 
     private MyInput myInput;
