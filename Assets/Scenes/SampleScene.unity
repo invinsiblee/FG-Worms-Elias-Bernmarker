@@ -2555,20 +2555,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0bec9eb319fb740ac74e38749ed16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move1: {fileID: 845419052}
-  move2: {fileID: 2054222246}
-  move3: {fileID: 871481005}
-  move4: {fileID: 1556464719}
-  shoot1: {fileID: 1582657683}
-  shoot2: {fileID: 2054222247}
-  shoot3: {fileID: 871481006}
-  shoot4: {fileID: 1556464720}
-  cam2: {fileID: 1370421422}
+  move:
+  - {fileID: 845419052}
+  - {fileID: 2054222246}
+  - {fileID: 871481005}
+  - {fileID: 1556464719}
+  shoot:
+  - {fileID: 1582657683}
+  - {fileID: 2054222247}
+  - {fileID: 871481006}
+  - {fileID: 1556464720}
   cam1: {fileID: 2019468480}
-  aim1: {fileID: 264856942}
-  aim2: {fileID: 644465989}
-  aim3: {fileID: 225791426}
-  aim4: {fileID: 1102662110}
+  cam2: {fileID: 1370421422}
+  aim:
+  - {fileID: 264856942}
+  - {fileID: 644465989}
+  - {fileID: 225791426}
+  - {fileID: 1102662110}
+  health:
+  - {fileID: 845419054}
+  - {fileID: 935018052}
+  - {fileID: 871481007}
+  - {fileID: 1556464721}
 --- !u!114 &80939170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17006,7 +17014,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.93200004}
   m_AnchorMax: {x: 0.12625001, y: 1}
-  m_AnchoredPosition: {x: -0.17492676, y: -0.34606934}
+  m_AnchoredPosition: {x: -0.17480469, y: -0.34606934}
   m_SizeDelta: {x: -0.35099792, y: 0.6921997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &648330252
@@ -21005,6 +21013,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 80939169}
+    - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1752860031}
@@ -21418,7 +21430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.83366287, y: 1}
   m_AnchorMax: {x: 0.83366287, y: 1}
-  m_AnchoredPosition: {x: 2.3700027, y: -17.637}
+  m_AnchoredPosition: {x: 2.3700104, y: -17.637001}
   m_SizeDelta: {x: 71.825, y: 35.846}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &879611629
@@ -22751,6 +22763,10 @@ PrefabInstance:
       propertyPath: weaponDamage
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 80939169}
     - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
       propertyPath: healthBar
       value: 
@@ -26196,7 +26212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.16337585, y: -18.799889}
+  m_AnchoredPosition: {x: -0.1633606, y: -18.799889}
   m_SizeDelta: {x: -14.33, y: -48.1827}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1015910593
@@ -41207,7 +41223,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547817738}
-  m_LocalRotation: {x: -0.09776547, y: 0.08812843, z: 0.008691869, w: 0.9912617}
+  m_LocalRotation: {x: -0.09776547, y: 0.08812839, z: 0.008691865, w: 0.9912617}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -41356,6 +41372,10 @@ PrefabInstance:
       propertyPath: weaponDamage
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 80939169}
     - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
       propertyPath: healthBar
       value: 
@@ -47223,7 +47243,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763760662}
-  m_LocalRotation: {x: -0.077227995, y: 0.08828941, z: 0.006865975, w: 0.99307287}
+  m_LocalRotation: {x: -0.07722801, y: 0.088289425, z: 0.006865977, w: 0.99307287}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -54684,6 +54704,10 @@ PrefabInstance:
       propertyPath: weaponDamage
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 80939169}
     - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
       propertyPath: healthBar
       value: 

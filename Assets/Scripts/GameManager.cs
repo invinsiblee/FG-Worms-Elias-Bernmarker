@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
@@ -9,26 +7,19 @@ public class GameManager : MonoBehaviour
 
     private MyInput myInput;
 
-    [Header("Player scripts")]
-    [SerializeField] private PlayerMovement move1;
-    [SerializeField] private PlayerMovement move2;
-    [SerializeField] private PlayerMovement move3;
-    [SerializeField] private PlayerMovement move4;
-
-    [SerializeField] private ShootingLogic shoot1;
-    [SerializeField] private ShootingLogic shoot2;
-    [SerializeField] private ShootingLogic shoot3;
-    [SerializeField] private ShootingLogic shoot4;
+    [Header("Player scripts")] 
+    [SerializeField] private PlayerMovement[] move;
+    [SerializeField] private ShootingLogic[] shoot;
 
     [Header("Cameras")] 
-    [SerializeField] private CinemachineFreeLook cam2;
     [SerializeField] private CinemachineVirtualCamera cam1;
+    [SerializeField] private CinemachineFreeLook cam2;
 
     [Header("AimCam")] 
-    [SerializeField] private Transform aim1;
-    [SerializeField] private Transform aim2;
-    [SerializeField] private Transform aim3;
-    [SerializeField] private Transform aim4;
+    [SerializeField] private Transform[] aim;
+
+    [Header("Players")] 
+    [SerializeField] private PlayerHealth[] health;
 
     void Start()
     {
@@ -44,16 +35,12 @@ public class GameManager : MonoBehaviour
     {
         if (myInput.nextTurn || myInput.aimDown && myInput.shoot)
         {
-            move1.enabled = false;
-            move2.enabled = false;
-            move3.enabled = false;
-            move4.enabled = false;
+            for (int i = 0; i < move.Length; i++)
+            {
+                move[i].enabled = false;
+                shoot[i].enabled = false;
+            }
 
-            shoot1.enabled = false;
-            shoot2.enabled = false;
-            shoot3.enabled = false;
-            shoot4.enabled = false;
-            
             players++;
             if (players == 1)
             {
@@ -76,47 +63,77 @@ public class GameManager : MonoBehaviour
 
     void Player1()
     {
-        move1.enabled = true;
-        shoot1.enabled = true;
+        if (health[0].dead)
+        {
+            players++;
+            Player2();
+        }
+        else
+        {
+            move[0].enabled = true;
+            shoot[0].enabled = true;
         
-        cam1.LookAt = move1.transform;
-        cam2.LookAt = aim1;
-        cam1.Follow = move1.transform;
-        cam2.Follow = move1.transform;
+            cam1.LookAt = move[0].transform;
+            cam2.LookAt = aim[0];
+            cam1.Follow = move[0].transform;
+            cam2.Follow = move[0].transform; 
+        }
     }
 
     void Player2()
     {
-        move2.enabled = true;
-        shoot2.enabled = true;
+        if (health[1].dead)
+        {
+            players++;
+            Player3();
+        }
+        else
+        {
+            move[1].enabled = true;
+            shoot[1].enabled = true;
         
-        cam1.LookAt = move2.transform;
-        cam2.LookAt = aim2;
-        cam1.Follow = move2.transform;
-        cam2.Follow = move2.transform;
+            cam1.LookAt = move[1].transform;
+            cam2.LookAt = aim[1];
+            cam1.Follow = move[1].transform;
+            cam2.Follow = move[1].transform;
+        }
     }
 
     void Player3()
     {
-        move3.enabled = true;
-        shoot3.enabled = true;
+        if (health[2].dead)
+        {
+            players++;
+            Player4();
+        }
+        else
+        {
+            move[2].enabled = true;
+            shoot[2].enabled = true;
         
-        cam1.LookAt = move3.transform;
-        cam2.LookAt = aim3;
-        cam1.Follow = move3.transform;
-        cam2.Follow = move3.transform;
+            cam1.LookAt = move[2].transform;
+            cam2.LookAt = aim[2];
+            cam1.Follow = move[2].transform;
+            cam2.Follow = move[2].transform;
+        }
     }
 
     void Player4()
     {
-        move4.enabled = true;
-        shoot4.enabled = true;
-        
-        cam1.LookAt = move4.transform;
-        cam2.LookAt = aim4;
-        cam1.Follow = move4.transform;
-        cam2.Follow = move4.transform;
-        
         players = 0;
+        if (health[3].dead)
+        {
+            Player1();
+        }
+        else
+        {
+            move[3].enabled = true;
+            shoot[3].enabled = true;
+        
+            cam1.LookAt = move[3].transform;
+            cam2.LookAt = aim[3];
+            cam1.Follow = move[3].transform;
+            cam2.Follow = move[3].transform;
+        }
     }
 }
