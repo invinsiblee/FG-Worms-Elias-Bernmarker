@@ -40,10 +40,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         Aim();
-        
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, WhatIsGround);
-            
-        //MyInput();
     }
 
     private void FixedUpdate()
@@ -96,7 +93,5 @@ public class PlayerMovement : MonoBehaviour
             aimCam.Priority = 1;  
             crosshair.SetActive(false);
         }
-        
-        //Lock controls
     }
 }

@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     [Header("Players")] 
     [SerializeField] private PlayerHealth[] health;
 
+    [HideInInspector] public int deathCounter;
+    [SerializeField] private GameObject ui;
+
     void Start()
     {
         myInput = GetComponent<MyInput>();
@@ -31,6 +34,11 @@ public class GameManager : MonoBehaviour
         if (myInput.nextTurn || myInput.aimDown && myInput.shoot)
         {
             NextTurn();
+        }
+
+        if (deathCounter >= 3)
+        {
+            ui.SetActive(true);
         }
     }
 

@@ -33,7 +33,9 @@ public class PlayerHealth : MonoBehaviour
             dead = true;
             transform.position = new Vector3(-10, -10, -10);
             crossedOut.SetActive(true);
+            manager.deathCounter++;
             manager.NextTurn();
+            enabled = false;
         }
     }
 }
