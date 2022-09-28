@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         NextTurn();
     }
 
-    void NextTurn()
+    public void NextTurn()
     {
         if (myInput.nextTurn || myInput.aimDown && myInput.shoot)
         {

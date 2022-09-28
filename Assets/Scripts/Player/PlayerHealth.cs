@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private GameObject crossedOut;
     public int currentHealth;
     [HideInInspector] public bool dead;
-    [SerializeField] private GameObject col;
+    [SerializeField] private GameManager manager;
     
     void Start()
     {
@@ -31,9 +31,9 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = 0;
             dead = true;
-            //col.SetActive(false);
             transform.position = new Vector3(-10, -10, -10);
             crossedOut.SetActive(true);
+            manager.NextTurn();
         }
     }
 }
