@@ -1021,6 +1021,11 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &24136521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1442569375254803230, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
+  m_PrefabInstance: {fileID: 871481003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &28375958
 Mesh:
   m_ObjectHideFlags: 0
@@ -19295,6 +19300,11 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &816187153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1442569375254803230, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
+  m_PrefabInstance: {fileID: 935018050}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &822563258
 GameObject:
   m_ObjectHideFlags: 0
@@ -21013,9 +21023,17 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
+      propertyPath: col
+      value: 
+      objectReference: {fileID: 24136521}
+    - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 80939169}
+    - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
+      propertyPath: meshCol
+      value: 
+      objectReference: {fileID: 24136521}
     - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
       propertyPath: healthBar
       value: 
@@ -22764,9 +22782,17 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
+      propertyPath: col
+      value: 
+      objectReference: {fileID: 816187153}
+    - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 80939169}
+    - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
+      propertyPath: meshCol
+      value: 
+      objectReference: {fileID: 816187153}
     - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
       propertyPath: healthBar
       value: 
@@ -31089,6 +31115,11 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1194626537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1442569375254803230, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
+  m_PrefabInstance: {fileID: 1442569375621869752}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1195503269
 Mesh:
   m_ObjectHideFlags: 0
@@ -31632,6 +31663,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1234246006}
   m_CullTransparentMesh: 1
+--- !u!1 &1235349957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1442569375254803230, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
+  m_PrefabInstance: {fileID: 1556464717}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1243206791
 GameObject:
   m_ObjectHideFlags: 0
@@ -41223,7 +41259,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547817738}
-  m_LocalRotation: {x: -0.09776547, y: 0.08812839, z: 0.008691865, w: 0.9912617}
+  m_LocalRotation: {x: -0.09776547, y: 0.0881284, z: 0.008691867, w: 0.9912617}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -41373,9 +41409,17 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
+      propertyPath: col
+      value: 
+      objectReference: {fileID: 1235349957}
+    - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 80939169}
+    - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
+      propertyPath: meshCol
+      value: 
+      objectReference: {fileID: 1235349957}
     - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
       propertyPath: healthBar
       value: 
@@ -54705,9 +54749,17 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
+      propertyPath: col
+      value: 
+      objectReference: {fileID: 1194626537}
+    - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 80939169}
+    - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
+      propertyPath: meshCol
+      value: 
+      objectReference: {fileID: 1194626537}
     - target: {fileID: 1442569374847754902, guid: 6b66592ffb0eb444192027b1f1ad527d, type: 3}
       propertyPath: healthBar
       value: 
