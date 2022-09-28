@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     [HideInInspector] public bool dead;
     [SerializeField] private GameManager manager;
-    
+
     void Start()
     {
         currentHealth = maxHealth;

@@ -28,36 +28,36 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        NextTurn();
+        if (myInput.nextTurn || myInput.aimDown && myInput.shoot)
+        {
+            NextTurn();
+        }
     }
 
     public void NextTurn()
     {
-        if (myInput.nextTurn || myInput.aimDown && myInput.shoot)
+        for (int i = 0; i < move.Length; i++)
         {
-            for (int i = 0; i < move.Length; i++)
-            {
-                move[i].enabled = false;
-                shoot[i].enabled = false;
-            }
+            move[i].enabled = false;
+            shoot[i].enabled = false;
+        }
 
-            players++;
-            if (players == 1)
-            {
-                Player1();
-            }
-            else if (players == 2)
-            {
-                Player2();
-            }
-            else if (players == 3)
-            {
-                Player3();
-            }
-            else if (players == 4)
-            {
-                Player4();
-            }
+        players++;
+        if (players == 1)
+        {
+            Player1();
+        }
+        else if (players == 2)
+        {
+            Player2();
+        }
+        else if (players == 3)
+        {
+            Player3();
+        }
+        else if (players == 4)
+        {
+            Player4();
         }
     }
 
